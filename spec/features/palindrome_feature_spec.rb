@@ -8,4 +8,15 @@ RSpec.feature 'palindromes', type: :feature do
       expect(page).to have_link 'Add a palindrome'
     end
   end
+
+  context 'palindrome has been added' do
+    before do
+      Palindrome.create(text: "Dammit I'm Mad")
+    end
+
+    scenario 'displays palindromes' do
+      visit '/'
+      expect(page).to have_content("Dammit I'm Mad")
+    end
+  end
 end

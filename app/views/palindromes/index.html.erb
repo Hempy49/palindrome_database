@@ -1,2 +1,9 @@
-No palindromes yet
+<% if @palindromes.any? %>
+  <% @palindromes.each do |palindrome| %>
+    <h2> <%= palindrome.text %> </h2>
+  <% end %>
+<% else %>
+  No palindromes yet
+<% end %>
+
 <a href='#'>Add a palindrome</a>
