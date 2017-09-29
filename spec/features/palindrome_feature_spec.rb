@@ -19,4 +19,15 @@ RSpec.feature 'palindromes', type: :feature do
       expect(page).to have_content("Dammit I'm Mad")
     end
   end
+
+  context 'creating palindromes' do
+    scenario 'prompts user to enter palindrome in form' do
+      visit '/'
+      click_link 'Add a palindrome'
+      fill_in 'palindrome_text', with: "Dammit I'm Mad"
+      click_button 'Create Palindrome'
+      expect(page).to have_content "Dammit I'm Mad"
+      expect(current_path).to eq '/'
+    end
+  end
 end
