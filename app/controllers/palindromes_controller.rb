@@ -10,8 +10,15 @@ class PalindromesController < ApplicationController
   end
 
   def create
-    @palindrome = Palindrome.create(palindrome_params)
-    redirect_to '/'
+    @palindrome = Palindrome.new(palindrome_params)
+    if @palindrome.palindrome?(@palindrome.text)
+      @palindrome.save
+      flash[:success] = "Saved. Great palindrome!"
+      redirect_to '/'
+    else
+      flash[:error] = "Sorry that's not a palindrome. Try again."
+      redirect_to new_palindrome_url
+    end
   end
 
   private
