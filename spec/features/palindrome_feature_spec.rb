@@ -4,7 +4,7 @@ RSpec.feature 'palindromes', type: :feature do
   context 'no palindromes have been added' do
     scenario 'should display a prompt to add a palindrome' do
       visit '/'
-      expect(page).to have_content 'No palindromes yet'
+      expect(page).to have_content 'No palindromes added recently'
       expect(page).to have_link 'Add a palindrome'
     end
   end
@@ -20,31 +20,16 @@ RSpec.feature 'palindromes', type: :feature do
     end
   end
 
-  context 'creating palindromes' do
-    scenario 'prompts user to enter palindrome in form' do
-      visit '/'
-      click_link 'Add a palindrome'
-      fill_in 'palindrome_text', with: "Dammit I'm Mad"
-      click_button 'Create Palindrome'
-      expect(page).to have_content "Dammit I'm Mad"
-      expect(current_path).to eq '/'
-    end
-  end
-
   context 'checking palindromes' do
     scenario 'accepts and saves correct palindrome' do
-      visit '/palindromes/new'
-      fill_in 'palindrome_text', with: "Dammit I'm Mad"
-      click_button 'Create Palindrome'
+      create_palindrome
       expect(page).to have_content "Dammit I'm Mad"
       expect(page).to have_content "Saved. Great palindrome!"
       expect(current_path).to eq '/'
     end
 
     scenario 'rejects input which is not a palindrome' do
-      visit '/palindromes/new'
-      fill_in 'palindrome_text', with: "Not a palindrome"
-      click_button 'Create Palindrome'
+      create_sentence
       expect(page).to have_content "Sorry that's not a palindrome. Try again."
       expect(page).to_not have_content "Not a palindrome"
       expect(current_path).to eq '/palindromes/new'

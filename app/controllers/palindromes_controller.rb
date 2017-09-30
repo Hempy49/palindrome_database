@@ -2,6 +2,9 @@ class PalindromesController < ApplicationController
 
   def index
     @palindromes = Palindrome.all
+    .where({ created_at: (Time.now - 10.minutes)..Time.now })
+    .order("created_at DESC")
+    .limit(10)
   end
 
   def new

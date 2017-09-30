@@ -1,9 +1,13 @@
+<h1>Recent palindromes:</h1>
+<ol>
 <% if @palindromes.any? %>
   <% @palindromes.each do |palindrome| %>
-    <h2> <%= palindrome.text %> </h2>
+    <li> <%= palindrome.text %> </li>
   <% end %>
 <% else %>
-  No palindromes yet
+  No palindromes added recently
 <% end %>
-
+</ol>
+<br>
+<br>
 <a href='/palindromes/new'>Add a palindrome</a>
