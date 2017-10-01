@@ -12,7 +12,7 @@ Build a service that stores a number of palindromes. A palindrome is a word or p
 
 ## Approach
 
-The project was written in Ruby on Rails following a TDD approach. This was a fun project that consolidated some of my rails knowledge. 
+The project was written in Ruby on Rails following a TDD approach. This was a fun project that consolidated some of my rails knowledge. With more time I would like to work on extending this project to add user authentication so that users can read,  update and delete their palindromes when logged in. A more exciting front-end built using a library like react.js, would also improve this web app.  
 
 ## How to use
 First clone this repo. Then:
