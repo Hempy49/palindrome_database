@@ -1,5 +1,5 @@
 <h1>Add a palindrome to database:</h1>
-<%= form_for @palindrome do |f| %>
+<%= bootstrap_form_for @palindrome do |f| %>
   <%= f.text_field :text %>
-  <%= f.submit %>
+  <%= f.primary %>
 <% end %>

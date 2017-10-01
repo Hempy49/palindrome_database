@@ -8,7 +8,7 @@ RSpec.feature 'palindrome list', type: :feature do
       expect(page).to_not have_content "Dammit I'm Mad"
     end
 
-    scenario 'should only dsplay palindromes entered in last 10mins' do
+    scenario 'should only display palindromes entered in last 10mins' do
       create_palindrome
       Timecop.travel(Time.now + 10.minutes)
       visit '/'

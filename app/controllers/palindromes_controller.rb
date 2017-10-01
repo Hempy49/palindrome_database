@@ -19,7 +19,7 @@ class PalindromesController < ApplicationController
       flash[:success] = "Saved. Great palindrome!"
       redirect_to '/'
     else
-      flash[:error] = "Sorry that's not a palindrome. Try again."
+      flash[:danger] = "Sorry that's not a palindrome. Try again."
       redirect_to new_palindrome_url
     end
   end
