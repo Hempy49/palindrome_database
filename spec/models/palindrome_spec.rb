@@ -23,4 +23,11 @@ RSpec.describe Palindrome, type: :model do
       expect(pal.format_string(pal.text)).to eq "dammitimmad"
     end
   end
+
+  describe 'palindrome?' do
+    it 'should validate numbers that are not palindromes' do
+      pal = Palindrome.new(text: '1234')
+      expect(pal.palindrome?(pal.text)).to eq false
+    end
+  end
 end

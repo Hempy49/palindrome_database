@@ -1,6 +1,22 @@
 Palindrome Database Tech Test
 =================
 
+## Prerequisites
+
+Postgresql development package
+
+Macs OSX (with home brew)
+  
+    brew install postgresql
+    
+Linux
+
+    yum install postgresql-devel
+    
+Windows
+
+    nope, sorry ¯\_(ツ)_/¯
+
 ## Specifications
 
 Build a service that stores a number of palindromes. A palindrome is a word or phrase string that reads the same backwards as forwards, independent of spaces and punctuation. An example could be 'Dammit I'm Mad'. The service has a simple REST interface that presents two endpoints:
@@ -18,11 +34,12 @@ The project was written in Ruby on Rails following a TDD approach. This was a fu
 First clone this repo. Then:
 ```
 bundle install
+# assuming your postgres instance is running
 bin/rails db:create
 bin/rails db:migrate
 
 bundle exec rspec # Run the tests to ensure it works
-bin/rails server # Start the server at localhost:300
+bin/rails server # Start the server at localhost:3000
 ```
 ## Screenshots
 Palindrome successfully saved in database:
